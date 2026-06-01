@@ -16,8 +16,8 @@ rednet.open(peripheral.getName(modem))
 print("Emetteur actif...")
 
 local function getQuantite(itemName)
-  local item = bridge.getItem({ name = itemName })
-  if item then return item.amount else return 0 end
+  local item = bridge.getItem(itemName)
+  if item and item.amount then return item.amount else return 0 end
 end
 
 while true do
