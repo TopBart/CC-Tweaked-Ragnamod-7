@@ -8,11 +8,13 @@ local fichiers = {
 }
 
 for _, fichier in pairs(fichiers) do
-  print("Téléchargement de " .. fichier .. "...")
+  print("Mise à jour de " .. fichier .. "...")
+  -- Supprime l'ancien fichier avant de télécharger
+  if fs.exists(fichier) then fs.delete(fichier) end
   shell.run("wget", base .. fichier, fichier)
 end
 
 print("")
-print("Installation terminée !")
+print("Installation/mise à jour terminée !")
 print("Lance 'alertes' sur le computer AE2")
 print("Lance 'modem_recepteur' sur le computer écran")
